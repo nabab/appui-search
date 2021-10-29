@@ -1,0 +1,19 @@
+{
+  "name": "bbn/appui-search",
+  "description": "A universal search system for App-UI",
+  "keywords": ["search", "appui", "vuejs"],
+  "homepage": "https://github.com/nabab/appui-search",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Nabet",
+      "email": "thomas.nabet@gmail.com",
+      "homepage": "https://bbn.solutions",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "bbn/bbn": "dev-master"
+  }
+}
