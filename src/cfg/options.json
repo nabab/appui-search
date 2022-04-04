@@ -1,0 +1,13 @@
+{
+  "cfg": {
+    "show_code": 1,
+    "allow_children": 1,
+    "show_icon": 1,
+    "i18n": "en"
+  },
+  "text": "Search",
+  "code": "search",
+  "icon": "nf nf-fa-search",
+  "plugin": true,
+  "id_parent": ["appui"]
+}
