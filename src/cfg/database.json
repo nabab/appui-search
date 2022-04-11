@@ -1,0 +1,131 @@
+{
+  "bbn_search": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+            "id"
+        ],
+        "unique": 1
+      },
+      "id_user": {
+        "columns": [
+          "id_user"
+        ],
+        "ref_table": "bbn_users",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "id_user": [
+        "id_user"
+      ]
+    },
+    "fields": {
+      "id": {
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "id_user": {
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "value": {
+        "type": "varchar",
+        "null": 0,
+        "maxlength": 255
+      },
+      "num": {
+        "type": "int",
+        "null": 0,
+        "key": null,
+        "signed": 1,
+        "maxlength": 11
+      },
+      "last": {
+        "type": "timestamp",
+        "null": 0,
+        "key": null,
+        "extra": "on update current_timestamp()",
+        "defaultExpression": "current_timestamp()"
+      }
+    }
+  },
+  "bbn_search_results": {
+    "keys": {
+      "PRIMARY": {
+        "columns": [
+          "id"
+        ],
+        "unique": 1
+      },
+      "id_search": {
+        "columns": [
+          "id_search"
+        ],
+        "ref_table": "bbn_search",
+        "ref_column": "id",
+        "update": "CASCADE",
+        "delete": "CASCADE",
+        "unique": 0
+      }
+    },
+    "cols": {
+      "id": [
+        "PRIMARY"
+      ],
+      "id_search": [
+        "id_search"
+      ]
+    },
+    "fields": {
+      "id": {
+        "type": "binary",
+        "null": 0,
+        "key": "PRI",
+        "maxlength": 16
+      },
+      "id_search": {
+        "type": "binary",
+        "null": 0,
+        "key": "MUL",
+        "maxlength": 16
+      },
+      "num": {
+        "type": "int",
+        "null": 0,
+        "key": null,
+        "signed": 1,
+        "maxlength": 11
+      },
+      "last": {
+        "type": "timestamp",
+        "null": 0,
+        "key": null,
+        "extra": "on update current_timestamp()",
+        "defaultExpression": "current_timestamp()"
+      },
+      "signature": {
+        "type": "varchar",
+        "null": 0,
+        "key": null,
+        "signed": 1,
+        "maxlength": 255
+      },
+      "result": {
+        "type": "longtext",
+        "null": 0,
+        "key": null
+      }
+    }
+  }
+}
