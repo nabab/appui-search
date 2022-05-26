@@ -53,8 +53,9 @@
       "last": {
         "type": "timestamp",
         "null": 0,
-        "extra": "on update current_timestamp()",
-        "defaultExpression": "current_timestamp()"
+        "extra": "on update NOW()",
+        "default": "NOW()",
+        "defaultExpression": 1
       }
     }
   },
@@ -107,8 +108,9 @@
       "last": {
         "type": "timestamp",
         "null": 0,
-        "extra": "on update current_timestamp()",
-        "defaultExpression": "current_timestamp()"
+        "extra": "on update NOW()",
+        "default": "NOW()",
+        "defaultExpression": 1
       },
       "signature": {
         "type": "varchar",
