@@ -34,13 +34,14 @@ if ($idOption = $ctrl->inc->options->fromCode('models', 'search', 'appui')) {
   $options = $ctrl->inc->options->fullOptions($idOption) ?: [];
   foreach ($models as $m) {
     if (is_null(X::find($options, ['plugin' => $m['plugin'], 'filename' => $m['filename']]))
-      && $ctrl->inc->options->add([
+      && ($idOpt = $ctrl->inc->options->add([
         'id_parent' => $idOption,
         'text' => (!empty($m['plugin']) ? $m['plugin'] . '/' : '') . $m['filename'],
         'plugin' => $m['plugin'],
         'filename' => $m['filename']
-      ])
+      ]))
     ) {
+      $ctrl->inc->permissions->optionToPermission($idOpt, true);
       $added++;
     }
   }
