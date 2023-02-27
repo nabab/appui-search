@@ -32,6 +32,18 @@ if ($idOption = $ctrl->inc->options->fromCode('models', 'search', 'appui')) {
     }
   }
   $options = $ctrl->inc->options->fullOptions($idOption) ?: [];
+  if (defined('BBN_PREFERENCES') && BBN_PREFERENCES) {
+    $prefCls = is_string(BBN_PREFERENCES) && class_exists(BBN_PREFERENCES) ?
+      BBN_PREFERENCES :
+      '\\bbn\\User\\Preferences';
+    $prefCls = new $prefCls($ctrl->db);
+  }
+  if (defined('BBN_PERMISSIONS') && BBN_PERMISSIONS) {
+    $permCls = is_string(BBN_PERMISSIONS) && class_exists(BBN_PERMISSIONS) ?
+      BBN_PERMISSIONS :
+      '\\bbn\\User\\Permissions';
+    $permCls =  new $permCls($ctrl->getRoutes());
+  }
   foreach ($models as $m) {
     if (is_null(X::find($options, ['plugin' => $m['plugin'], 'filename' => $m['filename']]))
       && ($idOpt = $ctrl->inc->options->add([
@@ -40,8 +52,8 @@ if ($idOption = $ctrl->inc->options->fromCode('models', 'search', 'appui')) {
         'plugin' => $m['plugin'],
         'filename' => $m['filename']
       ]))
+      && $permCls->optionToPermission($idOpt, true)
     ) {
-      $ctrl->inc->permissions->optionToPermission($idOpt, true);
       $added++;
     }
   }
