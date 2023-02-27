@@ -5,8 +5,8 @@ use \bbn\X;
 if ($idOption = $ctrl->inc->options->fromCode('models', 'search', 'appui')) {
   $models = [];
   $added = 0;
-  if (is_dir(BBN_APP_PATH . 'plugins/appui-search/model')
-    && ($files = Dir::getFiles(BBN_APP_PATH . 'plugins/appui-search/model'))
+  if (is_dir(BBN_APP_PATH . 'src/plugins/appui-search/model')
+    && ($files = Dir::getFiles(BBN_APP_PATH . 'src/plugins/appui-search/model'))
   ) {
     foreach ($files as $file) {
       $models[] = [
