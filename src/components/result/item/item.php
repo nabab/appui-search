@@ -4,9 +4,13 @@
        backgroundColor: source.bcolor || null
      }">
   <div class="bbn-flex-width">
+    <div>
+      <slot name="image"/>
+    </div>
     <div class="bbn-flex-fill">
       <span class="bbn-s bbn-badge bbn-bg-blue"
-            v-text="source.score"/>
+            v-text="source.score"
+            v-if="score"/>
       <span class="bbn-lg">
         <slot name="title"/>
       </span><br>

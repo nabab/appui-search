@@ -10,6 +10,10 @@
         type: String,
         required: true
       */
+      },
+      score: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {
