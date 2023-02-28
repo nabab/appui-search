@@ -1,4 +1,4 @@
-<div :class="[componentClass, 'bbn-w-100', 'bbn-spadded', 'bbn-p', 'bbn-default-alt-background']"
+<div :class="[componentClass, 'bbn-w-100', 'bbn-spadded', 'bbn-p']"
      :style="{
        color: source.fcolor || null,
        backgroundColor: source.bcolor || null
@@ -8,12 +8,13 @@
       <slot name="image"/>
     </div>
     <div class="bbn-flex-fill">
-      <span class="bbn-s bbn-badge bbn-bg-blue"
+      <span class="bbn-s bbn-badge bbn-secondary"
             v-text="source.score"
             v-if="score"/>
       <span class="bbn-lg">
         <slot name="title"/>
-      </span><br>
+      </span>
+      <br>
       <span>
         <slot name="content"/>
       </span>
