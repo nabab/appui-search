@@ -1,6 +1,6 @@
 (() => {
   return {
-    mixins: [bbn.vue.basicComponent],
+    mixins: [bbn.cp.mixins.basic],
     props: {
       source: {
         type: Object,
