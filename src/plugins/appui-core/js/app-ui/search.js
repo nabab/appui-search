@@ -32,8 +32,8 @@
     },
     watch: {
       searchOn(v) {
-        bbn.fn.log("EMIT CLOSING");
         this.$emit(v ? 'open' : 'close');
+        this.getRef('search').isOpened = v;
       }
     },
   }
