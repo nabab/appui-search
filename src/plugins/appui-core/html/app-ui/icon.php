@@ -1,8 +1,11 @@
 <div class="bbn-appui-search bbn-vmiddle bbn-h-100 bbn-hpadded">
    <div class="bbn-block bbn-p"
-      @click="show"
+      @mouseup="onMouseUp"
+      @mousedown="onMouseDown"
       tabindex="0">
       <i ref="icon"
-         class="nf nf-oct-search bbn-xxl"> </i>
+         :class="'bbn-xxl nf nf-' + (isMicrophone ? 'md-microphone' : (isLoading ? 'fa-warning' : 'oct-search'))"/>
    </div>
+   <audio ref="audioPlayer"
+          bbn-if="aiPlugin"/>
 </div>
