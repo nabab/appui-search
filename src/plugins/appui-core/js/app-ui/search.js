@@ -16,17 +16,31 @@
     methods: {
       show() {
         this.searchOn = true;
+        this.focusInput();
       },
       hide() {
         this.searchOn = false;
       },
       toggle() {
         this.searchOn = !this.searchOn;
+        if (this.searchOn) {
+          this.focusInput();
+        }
       },
       registerSearch() {
         appui.register('appui-search-big-search', this);
         this.getRef('search').registerFunction((...args) => {
           return appui.getRef('router').searchForString(...args);
+        });
+      },
+      focusInput(){
+        this.$nextTick(() => {
+          const ele = this.getRef('search').getRef('input').getRef('element');
+          if (ele) {
+            ele.focus();
+            bbn.env.focused = ele;
+            bbn.fn.selectElementText(ele);
+          }
         });
       }
     },
