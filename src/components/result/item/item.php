@@ -1,4 +1,4 @@
-<div :class="[componentClass, 'bbn-w-100', 'bbn-spadded', 'bbn-p']"
+<div :class="[componentClass, 'bbn-w-100', 'bbn-spadding', 'bbn-p']"
      :style="{
        color: source.fcolor || null,
        backgroundColor: source.bcolor || null

@@ -20,7 +20,7 @@
                    :limit="50"
                    :pageable="true"
                    class="bbn-no"/>
-   <div class="bbn-top-right bbn-p bbn-spadded bbn-xl"
+   <div class="bbn-top-right bbn-p bbn-spadding bbn-xl"
          @click="hide"
          tabindex="0">
       <i class="nf nf-fa-times"/>
