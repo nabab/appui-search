@@ -9,8 +9,8 @@
     </div>
     <div class="bbn-flex-fill">
       <span class="bbn-s bbn-badge bbn-secondary"
-            v-text="source.score"
-            v-if="score"/>
+            bbn-text="source.score"
+            bbn-if="score"/>
       <span class="bbn-lg">
         <slot name="title"/>
       </span>
@@ -21,7 +21,7 @@
     </div>
     <div class="bbn-h-100 bbn-r"
          style="vertical-align: middle"
-         v-html="source.match">
+         bbn-html="source.match">
     </div>
   </div>
 </div>
