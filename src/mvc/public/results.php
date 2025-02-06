@@ -15,15 +15,7 @@ if (!isset($ctrl->post['value'])) {
 if (!empty($ctrl->post['models'])
   || (!empty($ctrl->post['data']) && !empty($ctrl->post['data']['models']))
 ) {
-  if (!empty($ctrl->post['models'])) {
-    $ctrl->data['models'] = $ctrl->post['models'];
-  }
-  else if (!empty($ctrl->post['data']) && !empty($ctrl->post['data']['models'])) {
-    $ctrl->data['models'] = $ctrl->post['data']['models'];
-  }
-  if (!is_array($ctrl->data['models'])) {
-    $ctrl->data['models'] = [$ctrl->data['models']];
-  }
+  $ctrl->addData(['models' => $ctrl->post['models'] ?? $ctrl->post['data']['models']]);
 }
 
 $ctrl->action();

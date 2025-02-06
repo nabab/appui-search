@@ -15,7 +15,7 @@ if (!$model->hasData('idx')) {
 $search = new bbn\Appui\Search($model, []);
 $fns = $search->getExecutedCfg($model->data['value']);
 array_walk($fns, function(&$a, $i) {
-  $a['name'] = basename($a['file'], '.php') . ' - ' . ($a['score'] ?? '?') . ($a['alternative'] ? ' (' . $a['alternative'] . ')' : '');
+  $a['name'] = basename($a['file'], '.php') . ' - ' . ($a['score'] ?? '?') . (isset($a['alternative']) ? ' (' . $a['alternative'] . ')' : '');
 });
 
 if ($model->hasData('idx') && ($ele = X::getRow($fns, ['signature' => $model->data['idx']]))) {

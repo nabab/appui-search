@@ -6,19 +6,29 @@
       <h1 class="bbn-c"><?= _("Search checker") ?></h1>
       <div class="bbn-grid-fields bbn-padding">
         <label><?= _("Value to search for") ?></label>
-        <bbn-input bbn-model="currentValue" class="bbn-widest"/>
+        <bbn-input bbn-model="currentValue"
+                   class="bbn-widest"
+                   @input="changeValue"/>
 
         <div class="bbn-label"><?= _("Search type") ?></div>
-        <bbn-dropdown source-value="num"
+        <bbn-dropdown source-value="signature"
                       source-text="name"
                       source-url=""
                       bbn-model="currentSearch"
+                      :disabled="!currentValue.length"
                       :nullable="true"
                       class="bbn-widest"
                       placeholder="<?= _("Choose a search") ?>"
-                      :source="source.fns"/>
+                      :data="{value: currentValue}"
+                      :source="root + 'searches'"
+                      ref="dd"/>
 
-        <div class="bbn-label"><?= _("COnfiguration") ?></div>
+        <label><?= _("Search by signature") ?></label>
+        <bbn-input bbn-model="currentSignature"
+                   class="bbn-widest"
+                   @input="changeSignature"/>
+
+        <div class="bbn-label"><?= _("Configuration") ?></div>
         <div>
           <bbn-json-editor bbn-model="currentCfg"
                            class="bbn-widest"

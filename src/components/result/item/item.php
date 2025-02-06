@@ -1,7 +1,7 @@
 <div :class="[componentClass, 'bbn-w-100', 'bbn-spadding', 'bbn-p']"
      :style="{
-       color: source.fcolor || null,
-       backgroundColor: source.bcolor || null
+       color: source.fcolor || undefined,
+       backgroundColor: source.bcolor || undefined
      }">
   <div class="bbn-flex-width">
     <div>
