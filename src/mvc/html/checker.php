@@ -4,6 +4,19 @@
   <div class="bbn-padding bbn-centered-block" style="max-width: 100%; box-sizing: border-box">
     <div class="bbn-card bbn-vlmargin">
       <h1 class="bbn-c"><?= _("Search checker") ?></h1>
+      <div class="bbn-section bbn-flex-height">
+        <legend><?= _("What it does") ?></legend>
+        <p class="bbn-w-100">
+          <?= _("First insert the value to search for becaue it will condition the searches that will be launched") ?><br><br>
+          <?= _("Then pick the search that you to be performed.") ?><br>
+          <?= _("Once picked you will see its configuraion in the JSON editor") ?><br>
+          <?= _("Below two buttons will appear:") ?>
+        </p>
+        <ul class="bbn-w-100">
+          <li><?= _("one to display the database query") ?></li>
+          <li><?= _("the other will perform the search and show you the results") ?></li>
+        </ul>
+      </div>
       <div class="bbn-grid-fields bbn-padding">
         <label><?= _("Value to search for") ?></label>
         <bbn-input bbn-model="currentValue"
