@@ -57,7 +57,7 @@ if (!empty($ctrl->post['uid']) && !empty($ctrl->post['conditions'])) {
       'cmd' => sprintf(
         $cmd,
         $url,
-        bbn\Str::escapeDquotes(json_encode(['item' => $result['item'], 'step' => $step]))
+        bbn\Str::escapeDquotes(json_encode(['item' => $result['item'] ?? null, 'step' => $step]))
       ),
       'uid' => Str::genpwd(),
       'pipes' => []
