@@ -11,6 +11,7 @@
                      :start-url="root + 'start'"
                      :reset-url="root + 'update'"
                      :stop-url="root + 'stop'"
+                     :select-url="root + 'select'"
                      bbn-model="cfg.value"
                      :suggest="true"
                      @hook:mounted="registerSearch"

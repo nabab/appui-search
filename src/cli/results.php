@@ -1,10 +1,10 @@
 <?php
 use bbn\X;
 
-if (!empty($ctrl->post['item'])) {
+if (!empty($ctrl->post['item']) && !empty($ctrl->post['file'])) {
   $step = $ctrl->post['step'] ?? 0;
-  X::log('00 ' . microtime(true) . " BEFORE RESULTS ON $step", 'searchTimings');
-  X::log($ctrl->post['item'], 'searchCli');
+  //X::log("[STEP $step] " . microtime(true) . " BEFORE RESULTS ON $step", 'searchTimings');
+  //X::log($ctrl->post['item'], 'searchCli');
   try {
     $data = $ctrl->getModel(
       $ctrl->pluginUrl('appui-search') . '/stream',
@@ -16,10 +16,13 @@ if (!empty($ctrl->post['item'])) {
   }
 
   $num = count($data['results'] ?? []);
-  X::log('99 ' . microtime(true) . " AFTER  $num RESULTS ON $step", 'searchTimings');
-  X::log($data, 'searchCli');
+  //X::log("[STEP $step] " . microtime(true) . " AFTER  $num RESULTS ON $step", 'searchTimings');
+  if ($num) {
+    file_put_contents($ctrl->post['file'], json_encode($data));
+  }
+
   echo json_encode([
-    'data' => $data,
+    'num' => $num,
     'cli' => true,
     'step' => $ctrl->post['step'] ?? 0,
     'item' => $ctrl->post['item']
