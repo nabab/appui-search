@@ -21,11 +21,12 @@
         <label><?= _("Value to search for") ?></label>
         <bbn-input bbn-model="currentValue"
                    class="bbn-widest"
+                   :nullable="true"
                    @input="changeValue"/>
 
         <div class="bbn-label"><?= _("Search type") ?></div>
         <bbn-dropdown source-value="signature"
-                      source-text="name"
+                      source-text="text"
                       source-url=""
                       bbn-model="currentSearch"
                       :disabled="!currentValue.length"
@@ -34,7 +35,8 @@
                       placeholder="<?= _("Choose a search") ?>"
                       :data="{value: currentValue}"
                       :source="root + 'searches'"
-                      ref="dd"/>
+                      ref="dd"
+                      @dataloaded="onSignaturesLoaded"/>
 
         <label><?= _("Search by signature") ?></label>
         <bbn-input bbn-model="currentSignature"
@@ -52,7 +54,19 @@
         <div class="bbn-label"> </div>
         <div>
           <bbn-button @click="send"
-                      :disabled="(currentSearch === null) || !currentValue"><?= _("Check results for the selected search") ?></bbn-button>
+                      :disabled="(currentSearch === null) || !currentValue">
+            <?= _("Check results") ?>
+          </bbn-button>
+          <bbn-button @click="sendAll"
+                      :disabled="!isLoaded || !currentValue.length"
+                      bbn-if="!isLoading">
+            <?= _("Test all searches") ?>
+          </bbn-button>
+          <bbn-button @click="clear"
+                      :disabled="!isLoaded || !currentValue.length"
+                      bbn-elseif="!isLoading">
+            <?= _("Clear") ?>
+          </bbn-button>
         </div>
 
         <h3 class="bbn-grid-full bbn-c">
@@ -86,6 +100,23 @@
                  class="bbn-no-margin bbn-no-padding bbn-widest"
                  style="white-space: break-spaces"/>
           </div>
+        </template>
+        <template bbn-else
+                  bbn-for="res in allResults">
+          <div class="bbn-label"><?= _("Search name") ?></div>
+          <div bbn-text="res.name"/>
+
+          <div class="bbn-label"><?= _("Number of results") ?></div>
+          <div :class="{
+            'bbn-green': res.num > 0,
+            'bbn-red': res.time && !res.num
+          }"
+               bbn-text="res.time ? res.num : _('Unknown')"/>
+
+          <div class="bbn-label"><?= _("Query time") ?></div>
+          <div bbn-text="res.time || _('Running')"/>
+
+          <hr>
         </template>
       </div>
     </div>

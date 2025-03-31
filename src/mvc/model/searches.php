@@ -16,8 +16,8 @@ if ($model->hasData('data', true) && isset($model->data['data']['value'])) {
     $search = new bbn\Appui\Search($model, []);
     $res['data'] = $search->getExecutedCfg($v);
     array_walk($res['data'], function(&$a, $i) {
-      $a['name'] = basename($a['file'], '.php') . ' - ' 
-        . ($a['score'] ?? '?') 
+      $a['text'] = $a['name'] . ' - ' 
+        . $a['score'] . ' ' . X::_("points")
         . (isset($a['alternative']) ? ' (' . X::_("alternative") . ' ' . $a['alternative'] . ')' : '');
     });
   }

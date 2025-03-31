@@ -1,0 +1,11 @@
+{
+  "text": "Search",
+  "icon": "nf nf-cod-search",
+  "items": [
+    {
+      "text": "Search checker and viewer",
+      "icon": "nf nf-md-toy_brick_search_outline",
+      "link": "checker"
+    }
+  ]
+}
