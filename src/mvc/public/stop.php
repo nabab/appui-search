@@ -5,7 +5,7 @@ use bbn\X;
 $res = ['success' => false];
 if (!empty($ctrl->post['uid'])) {
   $res['uid'] = $ctrl->post['uid'];
-  $file = $ctrl->pluginDataPath('appui-search') . 'config/' . $ctrl->post['uid'] . '.json';
+  $file = $ctrl->pluginTmpPath('appui-search') . '/config/' . $ctrl->post['uid'] . '.json';
   if (file_exists($file)) {
     $res['success'] = unlink($file);
   }
