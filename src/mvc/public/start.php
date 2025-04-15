@@ -20,7 +20,13 @@ if (!empty($ctrl->post['uid']) && !empty($ctrl->post['conditions'])) {
     $num = count($res['data'] ?? []);
     X::log('yy ' . microtime(true) . " STREAMING $num RESULTS", 'searchTimings');
     $ctrl->stream($res);
+    while (ob_get_level()) {
+      ob_end_flush();
+    }
+    flush();
   }
+  X::log('yy ' . microtime(true) . " FINISHED STREAMING RESULTS", 'searchTimings');
+  
   /*
   // Sets output handling to streaming mode (so data can be sent incrementally to the client)
   $ctrl->setStream();
