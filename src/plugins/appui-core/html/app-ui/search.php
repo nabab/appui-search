@@ -18,7 +18,7 @@
                      :source-value="cfg.sourceValue"
                      :source-text="cfg.sourceText"
                      :min-length="cfg.minLength"
-                     @select.prevent="$nextTick(() => searchOn = false)"
+                     @select.prevent="searchOn = false"
                      @close="hide"
                      :limit="50"
                      :pageable="true"
