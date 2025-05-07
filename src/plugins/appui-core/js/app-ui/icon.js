@@ -2,6 +2,7 @@
   return {
     data() {
       return {
+        isMobile: bbn.fn.isMobileDevice(),
         root: appui.plugins['appui-search'] + '/',
         aiPlugin: appui.plugins['appui-ai'] ? appui.plugins['appui-ai'] + '/' : false,
         searchOn: false,

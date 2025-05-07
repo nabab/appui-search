@@ -4,7 +4,7 @@
       @mousedown="onMouseDown"
       tabindex="0">
       <i ref="icon"
-         :class="'bbn-xxl nf nf-' + (isMicrophone ? 'md-microphone' : (isLoading ? 'fa-warning' : 'oct-search'))"/>
+         :class="(isMobile ? 'bbn-lg' : 'bbn-xxl') + ' nf nf-' + (isMicrophone ? 'md-microphone' : (isLoading ? 'fa-warning' : 'oct-search'))"/>
    </div>
    <audio ref="audioPlayer"
           bbn-if="aiPlugin"/>
