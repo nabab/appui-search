@@ -45,7 +45,7 @@ if ($idOption = $ctrl->inc->options->fromCode('models', 'search', 'appui')) {
     $permCls =  new $permCls($ctrl->getRoutes());
   }
   foreach ($models as $m) {
-    if (is_null(X::find($options, ['plugin' => $m['plugin'], 'filename' => $m['filename']]))
+    if (is_null(X::search($options, ['plugin' => $m['plugin'], 'filename' => $m['filename']]))
       && ($idOpt = $ctrl->inc->options->add([
         'id_parent' => $idOption,
         'text' => (!empty($m['plugin']) ? $m['plugin'] . '/' : '') . $m['filename'],
