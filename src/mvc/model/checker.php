@@ -5,14 +5,14 @@
  **/
 
 use bbn\X;
-use bbn\Str;
+use bbn\Appui\Search;
 /** @var $model bbn\Mvc\Model */
 
 if (!$model->hasData('idx')) {
   $model->addData(['value' => 'Any Value']);
 }
 
-$search = new bbn\Appui\Search($model, []);
+$search = new Search($model, []);
 $fns = $search->getExecutedCfg($model->data['value']);
 array_walk($fns, function(&$a, $i) {
   $a['name'] = basename($a['file'], '.php') . ' - ' . ($a['score'] ?? '?') . (isset($a['alternative']) ? ' (' . $a['alternative'] . ')' : '');
