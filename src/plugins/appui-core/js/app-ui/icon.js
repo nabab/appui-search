@@ -4,7 +4,7 @@
       return {
         isMobile: bbn.fn.isMobileDevice(),
         root: appui.plugins['appui-search'] + '/',
-        aiPlugin: appui.plugins['appui-ai'] ? appui.plugins['appui-ai'] + '/' : false,
+        aiPlugin: false,//appui.plugins['appui-ai'] ? appui.plugins['appui-ai'] + '/' : false,
         searchOn: false,
         isRegistered: false,
         isMicrophone: false,
@@ -29,6 +29,7 @@
       onMouseUp() {
         if (!this.aiPlugin) {
           this.show();
+          return;
         }
 
         clearTimeout(this.timeoutFn);
