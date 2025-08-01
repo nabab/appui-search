@@ -4,7 +4,7 @@
      style="z-index: 13; background-color: transparent !important;">
    <div bbn-if="searchOn"
         class="bbn-overlay bbn-secondary"
-        style="opacity: 0.9"> </div>
+        style="opacity: 0.9"/>
    <bbn-stream-search :placeholder="cfg.placeholder"
                      :select-url="root + 'select'"
                      ref="search"

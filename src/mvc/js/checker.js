@@ -52,6 +52,7 @@
         this.allResults.splice(0);
       },
       async sendAll() {
+        this.allResults.splice(0);
         if (this.signatures?.length) {
           this.isLoading = true;
           for (let i = 0; i < this.signatures.length; i++) {

@@ -101,7 +101,7 @@
                  style="white-space: break-spaces"/>
           </div>
         </template>
-        <template bbn-else
+        <template bbn-elseif="allResults.length"
                   bbn-for="res in allResults">
           <div class="bbn-label"><?= _("Search name") ?></div>
           <div bbn-text="res.name"/>
